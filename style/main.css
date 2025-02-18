@@ -1,0 +1,273 @@
+.container > main{
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: lightblue; */
+}
+.container > main > .hero{
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: lightgreen; */
+}
+.container > main > .hero .image-user{
+    width: 100%;
+    height: 50%;
+    /* background-color: lightpink; */
+    display: grid;
+    place-items: center;
+    padding: 30px;
+}
+.container > main > .hero .image-user > .profile{
+    width: 170px;
+    height: 170px;
+    /* background-color: lightgray; */
+    border-radius: 50%;
+    position: relative;
+}
+.container > main > .hero .image-user > .profile::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105%;
+    height: 105%;
+    border: 5px solid rgb(128, 128, 128);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.container > main > .hero .image-user > .profile > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.container > main > .hero > .text-content{
+    width: 100%;
+    height: 50%;
+    /* background-color: lightyellow; */
+}
+
+.container > main > .hero > .text-content > .text{
+    text-align: center;
+    padding: 0 30px;
+}
+.container > main > .hero > .text-content > .text > h1{
+    font-weight: 550;
+}
+
+.container > main > .hero > .text-content >.text > p{
+    font-size: 15px;
+    color: gray;
+    margin-top: 10px;
+}
+.container > main > .hero > .text-content >.text > button{
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: black;
+    border: 2px solid gray;
+    border-radius: 7px;
+    background-color: transparent;
+    position: relative;
+    margin-top: 20px;
+}
+.container > main > .hero > .text-content >.text > button::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(149, 149, 149);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+}
+.container > main > .hero > .text-content >.text > button:hover::before{
+    width: 100%;
+    transition: 0.5s ease-in-out;
+}
+
+
+/* Screen Ipad */
+@media (min-width: 768px) {
+    .container > main > .hero{
+        display: flex;
+        padding: 30px 20px;
+    }
+    .container > main > .hero >.image-user{
+        width: 40%;
+    }
+    .container > main > .hero >.image-user > .profile{
+        width: 240px;
+        height: 240px;
+    }
+    .container > main > .hero >.text-content{
+        width: 60%;
+        padding: 30px;
+    }
+    .container > main > .hero >.text-content >.text{
+        text-align: left;
+    }
+}
+
+
+/* Screen Laptop */
+@media (min-width: 982px) {
+    .container > main > .hero >.image-user{
+        width: 40%;
+        padding: 50px 90px;
+    }
+    .container > main > .hero >.image-user > .profile{
+        width: 400px;
+        height: 400px;
+    }
+    .container > main > .hero > .text-content > .text > h1{
+        font-weight: 550;
+        font-size: 50px;
+        line-height: 80px;
+    }
+    .container > main > .hero > .text-content >.text > p{
+        font-size: 23px;
+        color: gray;
+        padding: 30px 0;
+    }
+}
+
+.container > main > .content-exp{
+    width: 100%;
+    /* background-color: rgb(163, 158, 158); */
+    margin-top: 15px;
+    padding: 15px 0;
+}
+.container > main > .content-exp > .title{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+.container > main > .content-exp > .title > p{
+    color: white;
+}
+.container > main > .content-exp > .title > a{
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+.container > main > .content-exp > .title > a::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    bottom: -1px;
+    transition: 0.3s ease-in-out;
+}
+.container > main > .content-exp > .title > a:hover::before{
+    width: 50%;
+    transition: 0.3s ease-in-out;
+}git push -u origin main
+.container > main > .content-exp > .title > a::after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    bottom: -1px;
+    right: 0;
+    transition: 0.3s ease-in-out;
+}
+.container > main > .content-exp > .title > a:hover::after{
+    width: 50%;
+    transition: 0.3s ease-in-out;
+}
+.container > main > .content-exp > .row {
+    width: 100%;
+    padding: 0 15px;
+}
+.container > main > .content-exp > .row > .card{
+    width: 100%;
+    /* height: 150px; */
+    background-color: rgb(138, 138, 138);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 25px 15px;
+}
+.container > main > .content-exp > .row > .card > .time{
+    margin: 10px 0;
+    color: rgb(254, 251, 251);
+}
+.container > main > .content-exp > .row >.card> p{
+    color: rgb(201, 198, 198);
+}
+.container > main > .content-exp > .row > .card h2{
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+}
+
+/* .container > main > .content-exp > .row{
+    display: flex;
+    justify-content: space-between;
+}
+.container > main > .content-exp > .row > .card{
+    width: 49%;
+}
+.container > main > .content-exp {
+    padding: 0 20px;
+}
+
+.container > main > .content-exp .row > .card{
+    padding: 50px 40px;
+}
+.container > main > .content-exp {
+    padding: 0 120px;
+}
+.container > main > .content-exp .row > .card > h2{
+    font-size: 30px;
+} */
+
+.container> main> .feature-work{
+    width: 100%;
+    height: 50vh;
+    padding: 15px 20px;
+}
+.container> main> .feature-work > .title{
+    text-align: center;
+    margin: 5pc 0;
+    font-size: 18px;
+}
+.container > main> .feature-work > .row{
+    width: 100%;
+    padding: 20px 0;
+}
+.container > main> .feature-work > .row > .card{
+    width: 100%;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+.container > main > .feature-work > .row > .card > .image{
+    height: 250px;
+    border-radius: 3px;
+    background-color: rgb(163, 158, 158);
+   
+}
+.container > main > .feature-work > .row > .card > .card-body{
+    padding: 20px 0;
+   
+}
+.container > main > .feature-work > .row > .card .card-body > .year{
+    margin: 15px 0 ;
+}
+.container > main > .feature-work > .row > .card .card-body > .year > span:nth-child(1){
+    background-color: black;
+    padding: 3px 20px;
+    border-radius: 50px;
+    color: white;
+
+}
+
+
+
+
+
+
