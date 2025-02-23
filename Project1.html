@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/Project1.css">
+<link rel="stylesheet" href="css/main.css">
+    <title>Sabay HOST Calculator</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">Sabay HOST Calculator </a>
+    </div>
+
+    <main>
+        <div class="hero">
+            <div class="image-user">
+                <div class="profile">
+                    <img src="image/profile2.jpg">
+                </div>
+            </div>
+            
+            <div class="text-content">
+                <div class="text">
+                    <h1>Hi, I'm Chanda,</h1>
+                    <h1>Creative Technology</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
+                         elit. Neque cupiditate at, eaque, pariatur velit 
+                         aperiam quae provident distinctio laborum numquam </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="container">
+        
+        <!-- Selection Form -->
+        <div class="form-section">
+            <div class="section">
+                <h2>1. Select Your Term Length</h2>
+                <label><input type="checkbox" name="term" value="3" checked> 3 Months</label>
+                <label><input type="checkbox" name="term" value="6"> 6 Months</label>
+                <label><input type="checkbox" name="term" value="12"> 12 Months</label>
+            </div>
+            <hr>
+
+            <div class="section">
+                <h2>2. Select Region</h2>
+                <!-- <label><input type="checkbox" name="region" value="Free" checked> European Union  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Free</b> </label> -->
+                <label><input type="checkbox" name="region" value="2.8" checked> Asia (Singapore)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $2.8 per month</label>
+                <label><input type="checkbox" name="region" value="4.8"> Asia (Cambodia) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$4.8 per month</label>
+                <label><input type="checkbox" name="region" value="1.8"> Asia (Japan) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1.8 per month</label>
+                <label><input type="checkbox" name="region" value="1.46"> Asia (India) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1.46 per month</label>
+                <label><input type="checkbox" name="region" value="1.29"> Australia (Sydney) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1.29 per month</label>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h6>Order Summary</h6>
+            <h3 align="center">Student Share Hosting</h3>
+            <p>Term Length: <span id="summary-term">3</span> Months</p>
+            <p>Region: $<span id="summary-region">2.8</span>/month</p>
+            <button onclick="calculatePrice()"><i class="bi bi-calculator"></i> &nbsp;Calculate Price</button>
+            <p class="total">Total: $<span id="summary-total">0.00</span></p>
+        </div>
+
+    </div>
+
+    <script>
+        function updateSummary() {
+    let term = document.querySelector('input[name="term"]:checked')?.value;
+    let region = document.querySelector('input[name="region"]:checked')?.value;
+
+    // Prevent updating summary if nothing is selected
+    if (term && region) {
+        document.getElementById('summary-term').textContent = term;
+        document.getElementById('summary-region').textContent = region;
+    }
+}
+
+function calculatePrice() {
+    let term = parseInt(document.querySelector('input[name="term"]:checked').value);
+    let region = parseFloat(document.querySelector('input[name="region"]:checked').value);
+    let setupFee = 15.00;
+    let total = (term * region + setupFee).toFixed(2);
+    
+    document.getElementById('summary-total').textContent = total;
+}
+
+// Add event listeners for both term and region checkboxes
+document.querySelectorAll('input[name="term"]').forEach(input => {
+    input.addEventListener('change', () => {
+        // Uncheck other checkboxes in the term group
+        document.querySelectorAll('input[name="term"]').forEach(item => {
+            if (item !== input) item.checked = false;
+        });
+        updateSummary();
+    });
+});
+
+document.querySelectorAll('input[name="region"]').forEach(input => {
+    input.addEventListener('change', () => {
+        // Uncheck other checkboxes in the region group
+        document.querySelectorAll('input[name="region"]').forEach(item => {
+            if (item !== input) item.checked = false;
+        });
+        updateSummary();
+    });
+});
+
+updateSummary(); // Initial summary update
+
+
+
+    </script>
+
+</body>
+</html>
